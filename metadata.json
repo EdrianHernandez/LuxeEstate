@@ -1,0 +1,5 @@
+{
+  "name": "LuxeEstate Portal",
+  "description": "A high-end real estate listing platform featuring advanced filtering, interactive map previews, and AI-powered property insights using Gemini.",
+  "requestFramePermissions": []
+}
