@@ -1,22 +1,21 @@
-
 import React, { useState, useMemo } from 'react';
 import SearchBar from './components/SearchBar';
 import ListingGrid from './components/ListingGrid';
 import PropertyMapPreview from './components/PropertyMapPreview';
 import AgentContact from './components/AgentContact';
 import { MOCK_PROPERTIES } from './constants';
-import { Filters, PropertyType } from './types';
+import { PropertyType } from './types';
 import { Building2, Map as MapIcon, LayoutGrid } from 'lucide-react';
 
-const App: React.FC = () => {
-  const [filters, setFilters] = useState<Filters>({
+const App = () => {
+  const [filters, setFilters] = useState({
     location: '',
     minPrice: 0,
     maxPrice: 5000000,
     propertyType: 'All'
   });
 
-  const [viewMode, setViewMode] = useState<'split' | 'map' | 'grid'>('split');
+  const [viewMode, setViewMode] = useState('split');
 
   const filteredProperties = useMemo(() => {
     return MOCK_PROPERTIES.filter(prop => {
@@ -82,7 +81,7 @@ const App: React.FC = () => {
       </nav>
 
       <main className="flex-grow flex flex-col relative">
-        {/* Search Bar Section - Compact Sticky Placement */}
+        {/* Search Bar Section */}
         <div className="border-b border-slate-200 bg-white/95 backdrop-blur-md sticky top-[61px] z-40 shadow-sm">
           <div className="max-w-[1600px] mx-auto px-4 py-3">
             <SearchBar filters={filters} setFilters={setFilters} />
@@ -91,7 +90,6 @@ const App: React.FC = () => {
 
         {/* Content Area */}
         <div className={`flex flex-grow overflow-hidden ${viewMode === 'map' ? 'h-[calc(100vh-120px)]' : ''}`}>
-          {/* List Section */}
           <div className={`
             overflow-y-auto transition-all duration-300 scroll-smooth
             ${viewMode === 'grid' ? 'w-full' : ''}
@@ -136,7 +134,6 @@ const App: React.FC = () => {
 
       <AgentContact />
       
-      {/* Footer */}
       <footer className="bg-slate-900 text-slate-400 py-12 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="col-span-1 md:col-span-2">
