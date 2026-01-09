@@ -1,13 +1,7 @@
-
 import React from 'react';
-import { Property } from '../types';
 import { MapPin, ZoomIn, ZoomOut, Compass } from 'lucide-react';
 
-interface PropertyMapPreviewProps {
-  properties: Property[];
-}
-
-const PropertyMapPreview: React.FC<PropertyMapPreviewProps> = ({ properties }) => {
+const PropertyMapPreview = ({ properties }) => {
   return (
     <div className="relative w-full h-full bg-[#e5e7eb] overflow-hidden">
       {/* Simulated Map Background Pattern */}
@@ -43,7 +37,7 @@ const PropertyMapPreview: React.FC<PropertyMapPreviewProps> = ({ properties }) =
           
           {/* Tooltip Card (hidden until hover) */}
           <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-48 bg-white rounded-lg shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-slate-100 overflow-hidden">
-            <img src={prop.imageUrl} className="w-full h-24 object-cover" />
+            <img src={prop.imageUrl} className="w-full h-24 object-cover" alt={prop.title} />
             <div className="p-3">
               <p className="text-xs font-bold truncate">{prop.title}</p>
               <p className="text-[10px] text-slate-500">{prop.beds} beds • {prop.sqft} sqft</p>
