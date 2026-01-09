@@ -1,7 +1,6 @@
+import { PropertyType } from './types';
 
-import { Property, PropertyType } from './types';
-
-export const MOCK_PROPERTIES: Property[] = [
+export const MOCK_PROPERTIES = [
   {
     id: '1',
     title: 'Modern Waterfront Villa',
