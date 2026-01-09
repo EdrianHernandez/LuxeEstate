@@ -1,15 +1,9 @@
-
 import React from 'react';
-import { Filters, PropertyType } from '../types';
+import { PropertyType } from '../types';
 import { Search, MapPin, Home } from 'lucide-react';
 
-interface SearchBarProps {
-  filters: Filters;
-  setFilters: React.Dispatch<React.SetStateAction<Filters>>;
-}
-
-const SearchBar: React.FC<SearchBarProps> = ({ filters, setFilters }) => {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+const SearchBar = ({ filters, setFilters }) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFilters(prev => ({ 
       ...prev, 
