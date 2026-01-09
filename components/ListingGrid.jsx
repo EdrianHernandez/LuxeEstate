@@ -1,16 +1,10 @@
-
 import React, { useState } from 'react';
-import { Property } from '../types';
 import { Bed, Bath, Square, Heart, Sparkles, Loader2, Search, MapPin, ArrowRight } from 'lucide-react';
 import { GoogleGenAI } from '@google/genai';
 
-interface ListingGridProps {
-  properties: Property[];
-}
-
-const PropertyCard: React.FC<{ property: Property }> = ({ property }) => {
+const PropertyCard = ({ property }) => {
   const [isLiked, setIsLiked] = useState(false);
-  const [aiInsight, setAiInsight] = useState<string | null>(null);
+  const [aiInsight, setAiInsight] = useState(null);
   const [isLoadingAi, setIsLoadingAi] = useState(false);
 
   const getAiInsight = async () => {
@@ -88,7 +82,7 @@ const PropertyCard: React.FC<{ property: Property }> = ({ property }) => {
           </p>
         </div>
 
-        {/* Property Specs - Refined Grid */}
+        {/* Property Specs */}
         <div className="grid grid-cols-3 gap-4 border-y border-slate-100 py-4 mb-5">
           <div className="flex flex-col">
             <div className="flex items-center gap-2 text-slate-900">
@@ -113,7 +107,7 @@ const PropertyCard: React.FC<{ property: Property }> = ({ property }) => {
           </div>
         </div>
 
-        {/* AI Insight Section - Enhanced styling */}
+        {/* AI Insight Section */}
         <div className="mb-6">
           {aiInsight ? (
             <div className="p-4 bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-xl text-sm text-blue-900 leading-relaxed animate-in fade-in zoom-in duration-300 relative overflow-hidden group/insight">
@@ -152,7 +146,7 @@ const PropertyCard: React.FC<{ property: Property }> = ({ property }) => {
   );
 };
 
-const ListingGrid: React.FC<ListingGridProps> = ({ properties }) => {
+const ListingGrid = ({ properties }) => {
   if (properties.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-32 text-slate-400 text-center px-4">
