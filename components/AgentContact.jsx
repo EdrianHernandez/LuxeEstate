@@ -1,13 +1,12 @@
-
 import React, { useState } from 'react';
 import { Send, User, Phone, MessageSquare, X, CheckCircle2 } from 'lucide-react';
 
-const AgentContact: React.FC = () => {
+const AgentContact = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
     setTimeout(() => {
